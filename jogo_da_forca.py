@@ -3,8 +3,8 @@ from turtle import clear
 import os
 import time
 
-lista_palavras = ['laranja', 'curitiba', 'cachorro', 'programador', 'desembargador', 'quiroprata',
-                  'escaravelho', 'pelicano', 'candelabro', 'vuvuzela', 'advogado', 'bumerangue', 'grampeador']
+lista_palavras = ['extorsao', 'sequestro', 'furto', 'roubo', 'tom', 'gato',
+                  'palavra', 'analise', 'comum', 'proprio', 'advogado', 'material', 'formal']
 lista_erros = list()
 lista_acertos = list()
 erros = 7
@@ -16,19 +16,19 @@ lista_apresentacao = list()
 
 
 def palavraEscolhida():
-    print(f'Palavra escolhida é {palavra_selecionada}')
+    print(f'A palavra escolhida é {palavra_selecionada}')
 
-
-nome = input('Olá, qual o seu nome?')
+nome = input('oie, qual seu nome?')
 
 
 def saudacao():
-    print(f'Olá {nome}!, Seja bem-vindo(a) ao jogo da Forca! :)')
+    print(f'Olá {nome}!, Seja bem-vinde ao jogo da Forca! :D')
 
 
-def quantidadeLetras():
-    print(f'Sua palavra tem {len(palavra_selecionada)} letras !')
+def quantidade_de_letras():
+    print(f'A sua palavra tem {len(palavra_selecionada)} letras !')
 
+    while ' ' in palavra_codificada and quantidade_
 
 for i in range(len(palavra_selecionada)):
     lista_letras.append(palavra_selecionada[i].lower())
@@ -73,7 +73,7 @@ def tentativa(letra):
         else:
             lista_erros.append(letra)
             print(
-                f'Ahhh!, A letra {letra} não existe na sua palavra! Tente novamente !')
+                f'Ahhh. A letra {letra} não existe na sua palavra. :( Tente novamente!')
             return 1
 
 def bonecoErro():
@@ -131,7 +131,7 @@ saudacao()
 i = 1
 while i <= erros:
     #palavraEscolhida()
-    quantidadeLetras()
+    quantidade_de_letras()
     tela()
     bonecoErro()
     if acertou():
