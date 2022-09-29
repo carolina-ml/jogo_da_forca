@@ -1,36 +1,44 @@
 import random as r
-from turtle import clear
 import os
 import time
 
-lista_palavras = ['extorsao', 'sequestro', 'furto', 'roubo', 'tom', 'gato',
-                  'palavra', 'analise', 'comum', 'proprio', 'advogado', 'material', 'formal']
-lista_erros = list()
-lista_acertos = list()
-erros = 7
-acertos = 0
-
-palavra_selecionada = r.choice(lista_palavras)
-lista_letras = list()
-lista_apresentacao = list()
-
-
-def palavraEscolhida():
-    print(f'A palavra escolhida é {palavra_selecionada}')
+lista_palavras = ['extorsao', 'sequestro', 'furto', 'roubo', 'tom', 'gato', 'palavra', 'analise', 'comum', 'proprio', 'advogado', 'material', 'formal']
 
 nome = input('oie, qual seu nome?')
+print(f'Olá {nome}!, Seja bem-vinde ao jogo da Forca! :D')
+input('\nPressione enter para começar!')
+os.system('cls')
 
+palavra_selecionada = r.choice(lista_palavras).upper()
+tamanho_palavra = len(palavra_selecionada)
+palavra_codificada = ['_']*tamanho_palavra
+quantidade_de_erros  = 0
 
-def saudacao():
-    print(f'Olá {nome}!, Seja bem-vinde ao jogo da Forca! :D')
+while '_' in palavra_codificada and quantidade_de_erros < 6:
+    print(f'\nSua palavra tem {tamanho_palavra} letras.')
+    print(f'Erros: {quantidade_de_erros} de 6')
+    for letra in palavra_codificada:
+        print(letra , end = ' ') # _ _ _ _ 
+    print()
 
+    letra_escolhida = input ('Digite uma letra: ').upper()
+    acertou = False
+    for i in range(len(palavra_selecionada)):
+        if letra_escolhida == palavra_selecionada[i]:
+            palavra_codificada [i] = letra_escolhida
+            acertou = True
+    if acertou == True:
+        print('Boa! Acertou!')
+    else:
+        print('Vacilo, não tem essa letra na palavra')
+        quantidade_de_erros = quantidade_de_erros + 1
 
-def quantidade_de_letras():
-    print(f'A sua palavra tem {len(palavra_selecionada)} letras !')
+if quantidade_de_erros == 6:
+    print('voce perdeu...')
+else:
+    print('parabens!! voce ganhou :D')
 
-    while ' ' in palavra_codificada and quantidade_
-
-for i in range(len(palavra_selecionada)):
+'''for i in range(len(palavra_selecionada)):
     lista_letras.append(palavra_selecionada[i].lower())
 
 for i in range(len(palavra_selecionada)):
@@ -151,3 +159,4 @@ if (erros == 0):
     print('|______ ')
     print(f'Que pena você errou! Tente novamente')
     time.sleep(2)
+'''
